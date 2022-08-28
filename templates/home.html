@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>La super web para kindle paperwhite 11</title>
 </head>
 <body>
     <h1>Hola</h1>
     <div id="space"></div>
+    <div id="fetcher"></div>
     <script>
         document.getElementById("space").innerHTML = 'js works'
+        fetch('https://reqres.in/api/users')
+            .then(r => r.json())
+            .then(r => {
+                document.getElementById("fetcher").innerHTML = JSON.stringify(r);
+            })
     </script>
 </body>
 </html>
