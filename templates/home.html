@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La super web para kindle paperwhite 11</title>
+    <style>
+        h1{
+            font-size: 3rem;
+        }
+    </style>
 </head>
 <body>
     <h1>Hola</h1>
@@ -12,11 +17,29 @@
     <div id="fetcher"></div>
     <script>
         document.getElementById("space").innerHTML = 'js works'
+        /*
         fetch('https://reqres.in/api/users')
             .then(r => r.json())
             .then(r => {
                 document.getElementById("fetcher").innerHTML = JSON.stringify(r);
             })
+        */
+
+        
+ 
+            const url = "https://reqres.in/api/users"
+            console.log(url)
+            let xhr = new XMLHttpRequest()
+            
+            xhr.open('GET', url, true)
+            xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+            xhr.send();
+            xhr.onload = function () {
+                console.log(xhr.status)
+                if(xhr.status === 200) {
+                    document.getElementById("fetcher").innerHTML = "Post successfully created!"
+                }
+            }
     </script>
 </body>
 </html>
