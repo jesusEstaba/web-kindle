@@ -16,7 +16,7 @@
     <div id="space"></div>
     <div id="fetcher"></div>
     <script>
-        document.getElementById("space").innerHTML = 'js works'
+        document.getElementById("space").innerHTML = 'js works';
         /*
         fetch('https://reqres.in/api/users')
             .then(r => r.json())
@@ -26,18 +26,16 @@
         */
 
         
- 
-            const url = "https://reqres.in/api/users"
-            console.log(url)
-            let xhr = new XMLHttpRequest()
+        document.getElementById("fetcher").innerHTML = "test";
+            const url = "https://reqres.in/api/users";
+            let xhr = new XMLHttpRequest();
             
-            xhr.open('GET', url, true)
-            xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
-            xhr.send();
+            xhr.open('GET', url, true);
+            xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+            // xhr.send();
             xhr.onload = function () {
-                console.log(xhr.status)
                 if(xhr.status === 200) {
-                    document.getElementById("fetcher").innerHTML = "Post successfully created!"
+                    document.getElementById("fetcher").innerHTML = "Post successfully created!";
                 }
             }
     </script>
