@@ -20,3 +20,7 @@ app.secret_key = ".."
 @app.route("/")
 def home_view():
     return render_template("home.html")
+
+@app.route("/amp")
+def amp_view():
+    return render_template("amp.html")
