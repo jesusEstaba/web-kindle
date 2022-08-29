@@ -24,3 +24,9 @@ def home_view():
 @app.route("/amp")
 def amp_view():
     return render_template("amp.html")
+
+@app.route("/code")
+def code_view():
+    f = open("index.js", "r")
+    rr = f.read()
+    return render_template("code.html", rr=rr)
