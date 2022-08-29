@@ -17,27 +17,10 @@
     <div id="fetcher"></div>
     <script>
         document.getElementById("space").innerHTML = 'js works';
-        /*
-        fetch('https://reqres.in/api/users')
-            .then(r => r.json())
-            .then(r => {
-                document.getElementById("fetcher").innerHTML = JSON.stringify(r);
-            })
-        */
-
         
-        document.getElementById("fetcher").innerHTML = "test";
-            const url = "https://reqres.in/api/users";
-            let xhr = new XMLHttpRequest();
-            
-            xhr.open('GET', url, true);
-            xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
-            // xhr.send();
-            xhr.onload = function () {
-                if(xhr.status === 200) {
-                    document.getElementById("fetcher").innerHTML = "Post successfully created!";
-                }
-            }
+        setTimeout(function() {
+            document.getElementById("fetcher").innerHTML = 'hola';
+        }, 6000);
     </script>
 </body>
 </html>

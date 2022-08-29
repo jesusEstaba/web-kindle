@@ -11,9 +11,9 @@ app.secret_key = ".."
 
 # DATABASE CONFIGURATION
 
-#uri = os.environ.get('MONGO_DB_URI', "mongodb://127.0.0.1")
-#client = MongoClient(uri)
-#db = client.kindle
+uri = os.environ.get('MONGO_DB_URI', "mongodb://127.0.0.1")
+client = MongoClient(uri)
+db = client.kindle
 #############################
 
 
@@ -24,6 +24,19 @@ def home_view():
 @app.route("/amp")
 def amp_view():
     return render_template("amp.html")
+
+@app.route("/notes")
+def notes_view():
+    notes = db.notes.find().sort('_id', -1)
+    return render_template("notes.html", notes=notes)
+
+@app.route("/notes/add")
+def notes_add_view():
+    note = {
+        'content': request.args.get('content')
+    }
+    db.notes.insert_one(note)
+    return redirect('/notes')
 
 @app.route("/code")
 def code_view():
