@@ -28,5 +28,5 @@ def amp_view():
 @app.route("/code")
 def code_view():
     f = open("index.js", "r")
-    rr = f.read().replace("const", "<b>const</b>").replace("await", "<em>await</em>")
+    rr = f.read().replace('\n', '<br>').replace("const", "<b>const</b>").replace("await", "<em>await</em>")
     return render_template("code.html", rr=rr)
